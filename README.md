@@ -14,7 +14,8 @@ This project includes Twitter scraper, and preprocess of tweeets, and analysis o
 * Remove Punctuation
 * Lowercase all strings
 * Remove repeating characters
-* I used Zemberek-NLP https://github.com/ahmetaa/zemberek-nlp for Lemmatization.
+* I used Zemberek-NLP https://github.com/ahmetaa/zemberek-nlp for Lemmatization. 
+* Identified negative suffixes.
 
 # Analysis 
 I used Sci-Kit library to analyze tweets.
