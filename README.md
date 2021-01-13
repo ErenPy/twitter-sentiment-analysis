@@ -1,5 +1,5 @@
 # twitter-sentiment-analysis
-Sentiment Analysis From Twitter for Turkish Tweets
+Sentiment Analysis to Turkish Tweets
 
 This project includes Twitter scraper, and preprocess of tweeets, and analysis of tweets using MNB, KNN, and SVM algortihms by using Sci-Kit learn.
 
