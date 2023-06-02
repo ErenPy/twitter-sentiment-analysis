@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+# Parse the Tweet data From Twitter
 def TweetParser(phrase) :
     list1 = []
     for elem in phrase:
