@@ -1,18 +1,23 @@
 import snscrape.modules.twitter as sntwitter
+import csv
 
-wordsList = ['kaşık', 'rölanti', 'siyah', 'kayna', 'taş', 'bir', 'kot',
-             'haber', 'gez', 'mahya', 'teşkilat', 'sayım', 'çal', 'silindir', 'şapka',
-             'sindirim', 'sistemi', 'boğaz', 'kavga', 'toz']
-timeList = []
 
-with open('Tweets-8-Jan.txt', 'w') as text_file:
-    for time in timeList :
-        for word in wordsList:
-            for i, tweet in enumerate(sntwitter.TwitterSearchScraper(f'"{word}" -canım -masaj -seks -sevişme lang:tr until:{time} -filter:links -filter:replies').get_items()):
-                content = tweet.content.replace('\n', '')
-                content = content.replace(',', ' ')
-                print(f'{content},{tweet.date}', file=text_file)
-                if i > 100:
-                    break
-            print('\tWord Finished')
-        print('\tTime Finished')
+accounts_list = []
+with open('names.txt') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    line_count = 0
+    for row in csv_reader:
+        for elements in row:
+            accounts_list.append(elements)
+
+with open('Tweets-13-Jan.txt', 'a') as text_file:
+    for account in accounts_list:
+        for i, tweet in enumerate(sntwitter.TwitterSearchScraper(f'(from:{account}) -filter:links -filter:replies').get_items()):
+            content = tweet.content.replace('\n', '')
+            content = content.replace(',', ' ')
+            content = content.replace('\'', ' ')
+            content = content.replace('\"', ' ')
+            print(f'{content},{tweet.date}', file=text_file)
+            if i > 2000:
+                break
+        print('Account Finished')
