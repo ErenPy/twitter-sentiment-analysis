@@ -2,7 +2,7 @@ import Utils
 import pandas
 
 
-# Create Data Frame Including Raw Data and Raw Time
+# Create Data Frame Including Raw Data and Raw Time use The Scraped Twitter Data
 df = pandas.read_csv('????????', lineterminator='\n', columns=["Tweets", "Time"])
 tweets = df.Tweets
 
